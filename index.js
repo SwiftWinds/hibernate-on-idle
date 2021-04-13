@@ -5,7 +5,7 @@ const { formatDuration, intervalToDuration } = require("date-fns");
 
 const warningTimeout = 60 * 10;
 const hibernateTimeout = 60 * 15;
-const interval = 1 * 1000;
+const pollInterval = 1 * 1000;
 
 let prevTime = desktopIdle.getIdleTime();
 let hasSentWarning = false;
@@ -54,4 +54,4 @@ setInterval(function timerIncrement() {
   }
 
   prevTime = newTime;
-}, interval);
+}, pollInterval);
