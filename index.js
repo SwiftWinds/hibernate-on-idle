@@ -12,7 +12,6 @@ let hasSentWarning = false;
 let isHibernating = false;
 
 function durationToString(durationInSeconds) {
-  //   console.log(durationInSeconds);
   return formatDuration(
     intervalToDuration({ start: 0, end: durationInSeconds * 1000 })
   );
@@ -20,15 +19,13 @@ function durationToString(durationInSeconds) {
 
 setInterval(function timerIncrement() {
   const newTime = desktopIdle.getIdleTime();
-  //   console.log(`prevTime: ${prevTime}`);
-  //   console.log(`newTime: ${newTime}`);
 
   if (newTime < prevTime && hasSentWarning) {
     if (!isHibernating) {
       notifier.notify({
         title: "Idle timer reset!",
         message: `You've been idle for ${durationToString(
-          prevTime
+          prevTime // we use prevTime instead of newTime because newTime is near 0
         )}, but you're back so we've reset the 15 minute timer until the computer hibernates`,
       });
     }
@@ -53,7 +50,6 @@ setInterval(function timerIncrement() {
 
   if (desktopIdle.getIdleTime() >= hibernateTimeout) {
     shutdown.hibernate();
-    // console.log("pretend we're hibernating right now");
     isHibernating = true;
   }
 
