@@ -1,0 +1,26 @@
+{
+  "name": "hibernate-on-idle",
+  "version": "1.0.0",
+  "description": "A simple node.js script to auto-hibernate your Windows computer on idle",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SwiftWinds/hibernate-on-idle.git"
+  },
+  "author": "SwiftWinds",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/SwiftWinds/hibernate-on-idle/issues"
+  },
+  "homepage": "https://github.com/SwiftWinds/hibernate-on-idle#readme",
+  "dependencies": {
+    "date-fns": "^2.20.3",
+    "desktop-idle": "^1.3.0",
+    "electron": "^12.0.3",
+    "electron-shutdown-command": "^2.0.1",
+    "node-notifier": "^9.0.1"
+  }
+}
