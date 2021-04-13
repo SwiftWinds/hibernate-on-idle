@@ -3,8 +3,8 @@ const shutdown = require("electron-shutdown-command");
 const notifier = require("node-notifier");
 const { formatDuration, intervalToDuration } = require("date-fns");
 
-const warningTimeout = 10;
-const hibernateTimeout = 15;
+const warningTimeout = 60 * 10;
+const hibernateTimeout = 60 * 15;
 const interval = 1 * 1000;
 
 let prevTime = desktopIdle.getIdleTime();
