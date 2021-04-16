@@ -37,8 +37,14 @@ async function hibernate() {
 
 setInterval(function timerIncrement() {
   const newTime = desktopIdle.getIdleTime();
+  console.log(`prevTime: ${prevTime}`);
+  console.log(`newTime: ${newTime}`);
 
-  if (newTime < prevTime && hasSentWarning) {
+  if (
+    newTime < hibernateTimeout &&
+    prevTime >= hibernateTimeout &&
+    hasSentWarning
+  ) {
     if (!isHibernating) {
       notifier.notify({
         title: 'Idle timer reset!',
@@ -66,8 +72,13 @@ setInterval(function timerIncrement() {
     hasSentWarning = true;
   }
 
-  if (desktopIdle.getIdleTime() >= hibernateTimeout) {
-    hibernate();
+  if (
+    desktopIdle.getIdleTime() >= hibernateTimeout &&
+    hasSentWarning &&
+    !isHibernating
+  ) {
+    // hibernate();
+    console.log("pretend we're hibernating right now");
     isHibernating = true;
   }
 
