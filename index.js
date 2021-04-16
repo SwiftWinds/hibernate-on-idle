@@ -5,8 +5,8 @@ const desktopIdle = require('desktop-idle');
 const notifier = require('node-notifier');
 const {formatDuration, intervalToDuration} = require('date-fns');
 
-const warningTimeout = 60 * 10;
-const hibernateTimeout = 60 * 15;
+const warningTimeout = 20;
+const hibernateTimeout = 30;
 const pollInterval = 1 * 1000;
 
 let prevTime = desktopIdle.getIdleTime();
